@@ -1,7 +1,7 @@
 # Rust Development Guidelines at the Laboratory for Web Algorithmics
 
 This file details the guidelines for developing Rust code at the Laboratory for
-Web Algorithmics. It is a document \textit{in fieri}, and will be updated as
+Web Algorithmics. It is a document _in fieri_, and will be updated as
 necessary.  
 
 These guidelines extend the [Rust API
@@ -21,15 +21,17 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 - In structures, the first declared fields should be the immutable ones (e.g.,
 those that do not change value in the lifetime of the structure) followed by the
 mutable ones. In each section, fields should be ordered from the most
-general/important to the least general/important.
+general/important to the least general/important. In particular, chains of
+dependence should be reflected by the field order.
 
 ## Methods
 
 - Rust does not allow for optional parameters with default values, but often one
 simulates them implicitly using `Option` or special values. In function and
-methods, the first parameters should be the implicitly compulsory ones, followed
+methods, the first parameters should be the compulsory ones, followed
 by the optional ones. In each section, arguments should be ordered from the most
-general/important to the least general/important.
+general/important to the least general/important. In particular, chains of
+dependence should be reflected by the argument order.
 
 ## Tests
 
@@ -57,8 +59,8 @@ file named `test_*` in the `tests` directory.
 
 ## Logging
 
-- All binaries and tests using logging (e.g., a `ProgressLogger) must configure
-  an`env_logger` with
+- All binaries and tests using logging (e.g., a `ProgressLogger`) must configure
+  an `env_logger` with
 
 ```rust
     env_logger::builder()
