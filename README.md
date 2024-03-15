@@ -76,7 +76,7 @@ dependence should be reflected by the argument order.
   - the type parameter is used in the return type of the function or method;
   - the type parameter is used in the body of the function or method.
 
-- Type parameters and `impl Trait` parameters trait bounds. This is
+- Type parameters and `impl Trait` parameters should minimize trait bounds. This is
   a concern similar to
   [C-STRUCT-BOUNDS](https://rust-lang.github.io/api-guidelines/future-proofing.html#c-struct-bounds).
   For example,
