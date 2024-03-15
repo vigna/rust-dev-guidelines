@@ -24,6 +24,28 @@ mutable ones. In each section, fields should be ordered from the most
 general/important to the least general/important. In particular, chains of
 dependence should be reflected by the field order.
 
+- `impl` blocks should minimize the trait bounds of the type parameters. This is
+  a concern similar to
+  [C-STRUCT-BOUNDS](https://rust-lang.github.io/api-guidelines/future-proofing.html#c-struct-bounds).
+  For example,
+
+  ```rust
+  impl<S: Read + Seek> Foo<S> {
+      pub fn bar(seek: S) -> std::io::Result<u64> {
+          seek.stream_position()
+      }
+  }
+  ```
+
+  should be
+
+  ```rust
+  impl<S: Seek> Foo<S> {
+      pub fn bar(seek: S) -> std::io::Result<u64> {
+          seek.stream_position()
+      }
+  }
+
 ## Methods
 
 - Rust does not allow for optional parameters with default values, but often one
@@ -32,6 +54,47 @@ methods, the first parameters should be the compulsory ones, followed
 by the optional ones. In each section, arguments should be ordered from the most
 general/important to the least general/important. In particular, chains of
 dependence should be reflected by the argument order.
+
+- Prefer `impl Trait` over type parameters whenever possible. For example,
+
+```rust
+pub fn doit<P: AsRef<Path>>(a: P) {
+
+}
+```
+
+is better written as
+
+```rust
+pub fn doit(a: impl AsRef<Path>) {
+
+}
+```
+
+Possible reasons for using type parameters instead of `impl Trait` include:
+
+    - the type parameter is used in the return type of the function or method;
+    - the type parameter is used in the body of the function or method.
+
+- Type parameters and `impl Trait` parameters trait bounds. This is
+  a concern similar to
+  [C-STRUCT-BOUNDS](https://rust-lang.github.io/api-guidelines/future-proofing.html#c-struct-bounds).
+  For example,
+
+  For example,
+
+  ```rust
+  pub fn bar(seek: impl (Read + Seek)) -> std::io::Result<u64> {
+      seek.stream_position()
+  }
+  ```
+
+  should be
+
+  ```rust
+  pub fn bar(seek: impl Seek) -> std::io::Result<u64> {
+      seek.stream_position()
+  }
 
 ## Tests
 
@@ -50,12 +113,13 @@ mod tests {
 ```
 
 - Unit-test functions should be named `test_` followed by a brief description of
-the tested structure, or of the specific feature tested.
+the tested structure, or the specific feature tested.
 
-- Longer, end-to-end, possibly slow tests should be placed in a separate
+- Longer, end-to-end, and possibly slow tests should be placed in a separate
 file named `test_*` in the `tests` directory.
 
-- Very slow tests should be gated with the feature `slow_tests`.
+- Very slow tests should be gated with the feature `slow_tests`. Ideally, `cargo
+  test` should not take more than a few seconds to run.
 
 ## Logging
 
