@@ -58,21 +58,21 @@ dependence should be reflected by the argument order.
 - Prefer `impl Trait` over type parameters whenever possible.
   For example,
 
-```rust
-pub fn doit<P: AsRef<Path>>(a: P) {
+  ```rust
+  pub fn doit<P: AsRef<Path>>(a: P) {
 
-}
-```
+  }
+  ```
 
-is better written as
+  is better written as
 
-```rust
-pub fn doit(a: impl AsRef<Path>) {
+  ```rust
+  pub fn doit(a: impl AsRef<Path>) {
 
-}
-```
+  }
+  ```
 
-- Possible reasons for using type parameters instead of `impl Trait` include:
+  Possible reasons for using type parameters instead of `impl Trait` include:
   - the type parameter is used in the return type of the function or method;
   - the type parameter is used in the body of the function or method.
 
@@ -97,24 +97,24 @@ pub fn doit(a: impl AsRef<Path>) {
 ## Tests
 
 - Small, short unit tests showcasing the behavior of a structure should
-be added directly in the source file as
+  be added directly in the source file as
 
-```rust
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test() -> anyhow::Result<()> {
-    }
-}
-```
+  ```rust
+  #[cfg(test)]
+  mod tests {
+      use super::*;
+  
+      #[test]
+      fn test() -> anyhow::Result<()> {
+      }
+  }
+  ```
 
 - Unit-test functions should be named `test_` followed by a brief description of
-the tested structure, or the specific feature tested.
+  the tested structure, or the specific feature tested.
 
 - Longer, end-to-end, and possibly slow tests should be placed in a separate
-file named `test_*` in the `tests` directory.
+  file named `test_*` in the `tests` directory.
 
 - Very slow tests should be gated with the feature `slow_tests`. Ideally, `cargo
   test` should not take more than a few seconds to run.
@@ -124,19 +124,19 @@ file named `test_*` in the `tests` directory.
 - All binaries and tests using logging (e.g., a `ProgressLogger`) must configure
   an `env_logger` with
 
-```rust
-    env_logger::builder()
-        .filter_level(log::LevelFilter::Info)
-        .try_init()?;
-```
+  ```rust
+      env_logger::builder()
+          .filter_level(log::LevelFilter::Info)
+          .try_init()?;
+  ```
 
-or
+  or
 
-```rust
-    env_logger::builder()
-        .is_test(true)
-        .filter_level(log::LevelFilter::Info)
-        .try_init()?;
-```
+  ```rust
+      env_logger::builder()
+          .is_test(true)
+          .filter_level(log::LevelFilter::Info)
+          .try_init()?;
+  ```
 
-for tests.
+  for tests.
