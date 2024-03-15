@@ -55,27 +55,30 @@ by the optional ones. In each section, arguments should be ordered from the most
 general/important to the least general/important. In particular, chains of
 dependence should be reflected by the argument order.
 
-- Prefer `impl Trait` over type parameters whenever possible. For example,
+- Prefer `impl Trait` over type parameters whenever possible.
+  For example,
+
 ```rust
 pub fn doit<P: AsRef<Path>>(a: P) {
 
 }
 ```
+
 is better written as
+
 ```rust
 pub fn doit(a: impl AsRef<Path>) {
 
 }
 ```
-Possible reasons for using type parameters instead of `impl Trait` include:
-    - the type parameter is used in the return type of the function or method;
-    - the type parameter is used in the body of the function or method.
+
+- Possible reasons for using type parameters instead of `impl Trait` include:
+  - the type parameter is used in the return type of the function or method;
+  - the type parameter is used in the body of the function or method.
 
 - Type parameters and `impl Trait` parameters trait bounds. This is
   a concern similar to
   [C-STRUCT-BOUNDS](https://rust-lang.github.io/api-guidelines/future-proofing.html#c-struct-bounds).
-  For example,
-
   For example,
 
   ```rust
