@@ -19,9 +19,10 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   - run `clippy` and `rustfmt` on the code;
   - run tests with the `slow_tests` feature, if available;
   - bump che version number;
-  - run `cargo semver-checks`;
+  - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
   - update the change log;
-  - commit the changes, and add an annotated (`-a`) tag with the version number;
+  - commit the changes, and add an annotated (`-a`) tag with annotation given by
+    the version number, and message given by the entry of the change log;
   - publish the crate.
 
 ## Naming Conventions
