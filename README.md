@@ -7,6 +7,23 @@ necessary.
 These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
+## Tools
+
+- Code should be `clippy`-clean.
+
+- Use `rustfmt` with standard options to format the code. Formatting should
+  be enabled as a save action in the editor to reduce the number of spurious
+  difference in commits due to spacing and formatting.
+
+- To release new versions:
+  - run `clippy` and `rustfmt` on the code;
+  - run tests with the `slow_tests` feature, if available;
+  - bump che version number;
+  - run `cargo semver-checks`;
+  - update the change log;
+  - commit the changes, and add an annotated (`-a`) tag with the version number;
+  - publish the crate.
+
 ## Naming Conventions
 
 - <https://github.com/rust-lang/rfcs/blob/master/text/0344-conventions-galore.md>
@@ -163,3 +180,21 @@ dependence should be reflected by the argument order.
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
   block. In `README.md` files the references must
+
+- Each project should sport a change log named `CHANGELOG.md` with the
+  following sample format:
+
+  ```md
+  # Change Log
+
+  ## [0.0.0] - 1970-01-01
+
+  ### New
+  * New feature
+  
+  ### Improved
+  * New feature
+  
+  ### Fixed
+  * Bug fix
+  ```
