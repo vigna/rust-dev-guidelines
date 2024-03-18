@@ -16,13 +16,15 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   difference in commits due to spacing and formatting.
 
 - To release new versions:
+  - run `cargo c --all-targets` with every feature enabled;
   - run `clippy` and `rustfmt` on the code;
   - run tests with the `slow_tests` feature, if available;
   - bump che version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
   - update the change log;
-  - commit the changes, and add an annotated (`-a`) tag with annotation given by
-    the version number, and message given by the entry of the change log;
+  - commit the changes;
+  - add on GitHub a new release with a new tag given by the version number, and
+    a message given by the entry of the change log;
   - publish the crate.
 
 ## Naming Conventions
@@ -34,8 +36,15 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   associated with the verb: for example, the trait `Read` is implemented by
   `BufReader`. See “Trait Naming” in the link above.
 
-- Modules: TBD
+- Modules are directories containing a `mod.rs` file. They should have plural
+  names for countables, as in `traits`, `impls`, `utils`, `tests`, and singular
+  names for uncountables, such as `fuzz`. Module names should be (very) short.
 
+- Modules that contain a single trait or structure should not be public, and
+  the trait or structure should be re-exported by the module that contains it.
+  Otherwise, the module should be public and should contain documentation about
+  its content.
+  
 ## Structures
 
 - In structures, the first declared fields should be the immutable ones (e.g.,
@@ -96,8 +105,8 @@ dependence should be reflected by the argument order.
   - the type parameter is used in the return type of the function or method;
   - the type parameter is used in the body of the function or method.
 
-- Type parameters and `impl Trait` parameters should minimize trait bounds. This is
-  a concern similar to
+- Type parameters and `impl Trait` parameters should minimize trait bounds. This
+  is a concern similar to
   [C-STRUCT-BOUNDS](https://rust-lang.github.io/api-guidelines/future-proofing.html#c-struct-bounds).
   For example,
 
@@ -189,7 +198,7 @@ dependence should be reflected by the argument order.
   `docs.rs` for the crate, as in
 
   ```md
-  [`MemCase`]: https://docs.rs/epserde/latest/epserde/deser/mem_case/struct.MemCase.html
+  [`MemCase`]: <https://docs.rs/epserde/latest/epserde/deser/mem_case/struct.MemCase.html>
   ```
 
 - Each project should sport a change log named `CHANGELOG.md` with the
@@ -202,6 +211,9 @@ dependence should be reflected by the argument order.
 
   ### New
   * New feature
+  
+  ### Changed
+  * Something changed (not new, not an improvement, not a fix)
   
   ### Improved
   * Improvement
