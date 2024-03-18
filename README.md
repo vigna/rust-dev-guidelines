@@ -9,10 +9,12 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
 ## Naming Conventions
 
+- <https://github.com/rust-lang/rfcs/blob/master/text/0344-conventions-galore.md>
+
 - As in the Rust standard libraries, traits should use the indefinite/imperative
   form of a verb, whereas implementing structures should use a qualified agent
   associated with the verb: for example, the trait `Read` is implemented by
-  `BufReader`.
+  `BufReader`. See “Trait Naming” in the link above.
 
 - Modules: TBD
 
@@ -49,7 +51,7 @@ dependence should be reflected by the field order.
 ## Methods
 
 - Rust does not allow for optional parameters with default values, but often one
-simulates them implicitly using `Option` or special values. In function and
+simulates them implicitly using `Option` or special values. In functions and
 methods, the first parameters should be the compulsory ones, followed
 by the optional ones. In each section, arguments should be ordered from the most
 general/important to the least general/important. In particular, chains of
@@ -93,6 +95,15 @@ dependence should be reflected by the argument order.
   pub fn bar(seek: impl Seek) -> std::io::Result<u64> {
       seek.stream_position()
   }
+
+- There are a few standard preferences in argument types:
+  - always prefer receiving an `IntoIterator` rather than an `Iterator`;
+  - always prefer receiving a `AsRef<str>` rather than a `String`, `&str`, or
+      `&String`;
+  - always prefer receiving a `AsRef<Path>` rather than a `Path`, `&Path`, or
+      `&PathBuf`;
+  - always prefer receiving a reference to a slice rather than a more specific
+    data structure like a vector.
 
 ## Tests
 
@@ -140,3 +151,15 @@ dependence should be reflected by the argument order.
   ```
 
   for tests.
+
+## Errors
+
+- <https://github.com/rust-lang/rfcs/blob/master/text/0236-error-conventions.md>
+
+## Documentation
+
+- <https://github.com/rust-lang/rfcs/blob/master/text/1574-more-api-documentation-conventions.md>
+
+- As discussed in the reference above, links should be written in reference
+  style, and the references should be placed at the end of the documentation
+  block. In `README.md` files the references must
