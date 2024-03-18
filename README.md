@@ -194,7 +194,7 @@ dependence should be reflected by the argument order.
   * New feature
   
   ### Improved
-  * New feature
+  * Improvement
   
   ### Fixed
   * Bug fix
