@@ -180,7 +180,17 @@ dependence should be reflected by the argument order.
 
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
-  block. In `README.md` files the references must
+  block.
+
+- The main crate documentation must be placed in a `README.md` file that
+  is included by `lib.rs` using `#![doc = include_str!("../README.md")]`.
+  All links in the `README.md` file should be written in reference style, using
+  absolute URLs, possibly pointing to the latest version of the crate on
+  `docs.rs` for the crate, as in
+
+  ```md
+  [`MemCase`]: https://docs.rs/epserde/latest/epserde/deser/mem_case/struct.MemCase.html
+  ```
 
 - Each project should sport a change log named `CHANGELOG.md` with the
   following sample format:
