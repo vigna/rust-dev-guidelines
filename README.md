@@ -17,7 +17,9 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
 - To release new versions:
   - run `cargo c --all-targets` with every feature enabled;
+  - run `cargo +nightly fuzz build` if necessary;
   - run `clippy` and `rustfmt` on the code;
+  - run `cargo doc` and check the generated docs;
   - run tests with the `slow_tests` feature, if available;
   - bump che version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
