@@ -196,6 +196,9 @@ dependence should be reflected by the argument order.
 
 - <https://github.com/rust-lang/rfcs/blob/master/text/1574-more-api-documentation-conventions.md>
 
+- Functions and methods should be documented [in this
+  way](https://doc.rust-lang.org/rust-by-example/meta/doc.html).
+
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
   block.
