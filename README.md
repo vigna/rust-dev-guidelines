@@ -136,6 +136,13 @@ dependence should be reflected by the argument order.
 
 ## Tests
 
+- Assertions in tests must sport first the actual value, and then the expected
+  value. For example,
+
+  ```rust
+  assert_eq!(bit_read.read_gamma(), 2);
+  ```
+
 - Small, short unit tests showcasing the behavior of a structure should
   be added directly in the source file as
 
