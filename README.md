@@ -21,13 +21,15 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   - run `clippy` and `rustfmt` on the code;
   - run `cargo doc` and check the generated docs;
   - run tests with the `slow_tests` feature, if available;
-  - bump che version number;
+  - bump the version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
   - update the change log;
   - commit the changes;
-  - add on GitHub a new release with a new tag given by the version number, and
+  - add on GitHub a new titleless release with a new tag given by the version number, and
     a message given by the entry of the change log;
-  - publish the crate.
+  - publish the crate (in case of a crate with procedural macros,
+    first publish the procedural macros, then test again the main
+    crate, and finally publish the main crate).
 
 ## Naming Conventions
 
@@ -156,6 +158,9 @@ dependence should be reflected by the argument order.
       }
   }
   ```
+
+  Note that these are the only tests that can access the private parts of the
+  module.
 
 - Unit-test functions should be named `test_` followed by a brief description of
   the tested structure, or the specific feature tested.
