@@ -247,20 +247,20 @@ dependence should be reflected by the argument order.
 
   ## [0.0.0] - 1970-01-01
 
-### New
+  ### New
 
-- New feature
+  - New feature
   
-### Changed
+  ### Changed
 
-- Something changed (not new, not an improvement, not a fix)
+  - Something changed (not new, not an improvement, not a fix)
   
-### Improved
+  ### Improved
 
-- Improvement
+  - Improvement
   
-### Fixed
+  ### Fixed
 
-- Bug fix
+  - Bug fix
 
-  ```
+```
