@@ -243,8 +243,6 @@ dependence should be reflected by the argument order.
   * Bug fix
 
 
-  # Change Log
-
   ## [0.0.0] - 1970-01-01
 
   ### New
