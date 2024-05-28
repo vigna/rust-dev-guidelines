@@ -224,17 +224,43 @@ dependence should be reflected by the argument order.
   ```md
   # Change Log
 
-  ## [0.0.0] - 1970-01-01
+  ## [0.0.1] - 1970-01-02
 
   ### New
+
   * New feature
   
   ### Changed
+
   * Something changed (not new, not an improvement, not a fix)
   
   ### Improved
+
   * Improvement
   
   ### Fixed
+
   * Bug fix
+
+
+  # Change Log
+
+  ## [0.0.0] - 1970-01-01
+
+### New
+
+- New feature
+  
+### Changed
+
+- Something changed (not new, not an improvement, not a fix)
+  
+### Improved
+
+- Improvement
+  
+### Fixed
+
+- Bug fix
+
   ```
