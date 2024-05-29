@@ -229,39 +229,39 @@ dependence should be reflected by the argument order.
   ### New
 
   * New feature, and note that lines should be max 80 characters long to
-    facilitate reading
+    facilitate reading.
   
-  * Other new feature
+  * Other new feature.
   
   ### Changed
 
-  * Something changed (not new, not an improvement, not a fix)
+  * Something changed (not new, not an improvement, not a fix).
   
   ### Improved
 
-  * Improvement
+  * Improvement.
   
   ### Fixed
 
-  * Bug fix
+  * Bug fix.
 
 
   ## [0.0.0] - 1970-01-01
 
   ### New
 
-  * New feature
+  * New feature.
   
   ### Changed
 
-  * Something changed (not new, not an improvement, not a fix)
+  * Something changed (not new, not an improvement, not a fix).
   
   ### Improved
 
-  * Improvement
+  * Improvement.
   
   ### Fixed
 
-  * Bug fix
+  * Bug fix.
 
 ```
