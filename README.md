@@ -213,9 +213,9 @@ dependence should be reflected by the argument order.
   /// * `a` - The first argument, and note that lines should be max 80 characters
   /// long to facilitate reading.
   ///
-  /// * `b` - The second argument.
+  /// * `b` - The second argument. Note the empty line above.
   ///
-  /// * `c` - The third argument.
+  /// * `c` - The third argument. Note the empty line below.
   ```
 
 - As discussed in the reference above, links should be written in reference
