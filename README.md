@@ -228,7 +228,10 @@ dependence should be reflected by the argument order.
 
   ### New
 
-  * New feature
+  * New feature, and note that lines should be max 80 characters long to
+    facilitate reading
+  
+  * Other new feature
   
   ### Changed
 
