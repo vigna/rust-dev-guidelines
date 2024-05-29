@@ -204,6 +204,20 @@ dependence should be reflected by the argument order.
 - Functions and methods should be documented [in this
   way](https://doc.rust-lang.org/rust-by-example/meta/doc.html).
 
+- Function arguments need not be documented explicitly if the meaning is
+  evident from the naming; otherwise, they should be documented as follows:
+
+  ```rust
+  /// # Arguments
+  ///
+  /// * `a` - The first argument, and note that lines should be max 80 characters
+  /// long to facilitate reading.
+  ///
+  /// * `b` - The second argument.
+  ///
+  /// * `c` - The third argument.
+  ```
+
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
   block.
