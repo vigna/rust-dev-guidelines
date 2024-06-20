@@ -138,6 +138,10 @@ dependence should be reflected by the argument order.
 
 ## Tests
 
+- Test functions should be named `test_` followed first by a brief description
+  of the tested structure, and then of the specific feature tested, e.g.,
+  `test_rank9_empty`.
+
 - Assertions in tests must sport first the actual value, and then the expected
   value. For example,
 
@@ -145,8 +149,8 @@ dependence should be reflected by the argument order.
   assert_eq!(bit_read.read_gamma(), 2);
   ```
 
-- Small, short unit tests showcasing the behavior of a structure should
-  be added directly in the source file as
+- Unit tests that need to access the private parts of a structure should be
+  added directly at the end the source file as
 
   ```rust
   #[cfg(test)]
@@ -154,13 +158,10 @@ dependence should be reflected by the argument order.
       use super::*;
   
       #[test]
-      fn test() -> anyhow::Result<()> {
+      fn test_structure_behavior() -> anyhow::Result<()> {
       }
   }
   ```
-
-  Note that these are the only tests that can access the private parts of the
-  module.
 
 - Unit-test functions should be named `test_` followed by a brief description of
   the tested structure, or the specific feature tested.
