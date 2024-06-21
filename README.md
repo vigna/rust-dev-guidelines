@@ -140,8 +140,8 @@ dependence should be reflected by the argument order.
 
 - Test functions should be named `test_` followed by a brief description of the
   feature tested, e.g., `test_long_input`. If a source file contains tests for
-  more than one structure, the test functions should be named `test_` followed
-  by a disambiguating suffix—for example, the name of the structure.
+  more than one structure, the test functions might sport a disambiguating
+  suffix after `test_`—for example, the name of the structure.
 
 - Assertions in tests must sport first the actual value, and then the expected
   value. For example,
