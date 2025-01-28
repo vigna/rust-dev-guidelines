@@ -50,7 +50,7 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   Otherwise, the module should be public and should contain documentation about
   its content.
   
-## Source File Structures
+## Structure of Source Files
 
 In source files, information about types should appear in this order:
 
