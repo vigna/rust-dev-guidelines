@@ -204,6 +204,9 @@ dependence should be reflected by the argument order.
 
 - <https://github.com/rust-lang/rfcs/blob/master/text/1574-more-api-documentation-conventions.md>
 
+- An additional documentation section `Implementation Notes` can be used to
+  gather details of the implementation that are not relevant to the user.
+
 - Functions and methods should be documented [in this
   way](https://doc.rust-lang.org/rust-by-example/meta/doc.html).
 
