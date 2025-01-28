@@ -50,6 +50,17 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   Otherwise, the module should be public and should contain documentation about
   its content.
   
+## Source File Structures
+
+In source files, information about types should appear in this order:
+
+- declaration;
+- implementations of derivable traits;
+- inherent implementations;
+- implementations of trait from the crate;
+- implementations of external crates;
+- implementations of traits from the standard library.
+
 ## Structures
 
 - In structures, the first declared fields should be the immutable ones (e.g.,
