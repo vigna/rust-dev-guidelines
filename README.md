@@ -25,12 +25,12 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
   - update the change log;
   - commit the changes;
-  - create an annotated tag for the new release with `git tag -m"Release VERSION" VERSION`;
-  - add on GitHub a new titleless release associated with the newly created tag,
-    and a message given by the entry of the change log;
   - publish the crate (in case of a crate with procedural macros,
     first publish the procedural macros, then test again the main
-    crate, and finally publish the main crate).
+    crate, and finally publish the main crate);
+  - create an annotated tag for the new release with `git tag -m"Release VERSION" VERSION`;
+  - add on GitHub a new titleless release associated with the newly created tag,
+    and a message given by the entry of the change log.
 
 ## Naming Conventions
 
@@ -56,6 +56,7 @@ In source files, information about types should appear in this order:
 
 - declaration;
 - implementations of derivable traits;
+- macros (constructors, etc.);
 - inherent implementations;
 - implementations of trait from the crate;
 - implementations of external crates;
