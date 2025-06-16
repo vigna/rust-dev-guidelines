@@ -20,6 +20,7 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   - run `cargo +nightly fuzz build` if necessary;
   - run `clippy` and `rustfmt` on the code;
   - run `cargo doc --document-private-items` and check the generated docs;
+  - run `cargo deadlinks`;
   - run tests with the `slow_tests` feature, if available;
   - bump the version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
