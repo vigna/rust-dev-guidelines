@@ -2,7 +2,7 @@
 
 This file details the guidelines for developing Rust code at the Laboratory for
 Web Algorithmics. It is a document _in fieri_, and will be updated as
-necessary.  
+necessary.
 
 These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
@@ -50,7 +50,7 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   the trait or structure should be re-exported by the module that contains it.
   Otherwise, the module should be public and should contain documentation about
   its content.
-  
+
 ## Structure of Source Files
 
 In source files, information about types should appear in this order:
@@ -59,7 +59,7 @@ In source files, information about types should appear in this order:
 - implementations of derivable traits;
 - macros (constructors, etc.);
 - inherent implementations;
-- implementations of trait from the crate;
+- implementations of traits from the crate;
 - implementations of external crates;
 - implementations of traits from the standard library.
 
@@ -171,7 +171,7 @@ dependence should be reflected by the argument order.
   #[cfg(test)]
   mod tests {
       use super::*;
-  
+
       #[test]
       fn test_long_input() -> anyhow::Result<()> {
       }
@@ -186,6 +186,17 @@ dependence should be reflected by the argument order.
 
 - Very slow tests should be gated with the feature `slow_tests`. Ideally, `cargo
   test` should not take more than a few seconds to run.
+
+## Macros
+
+- In macros, one should always specify structures and traits starting from `::`
+  to avoid relative resolution. This does not fix the problem of modules at
+  the root of the crate shadowing modules in the standard library, but if
+  that happens there are much bigger problems to attend to.
+
+- Methods in macros and generated code should use the UFCS (Uniform Function
+  Call Syntax) rather than the dot syntax, to avoid unpredictable
+  method-resolution issues. This entails writing `T::m(a)` instead of `a.m()`.
 
 ## Logging
 
@@ -263,17 +274,17 @@ dependence should be reflected by the argument order.
 
   * New feature, and note that lines should be max 80 characters long to
     facilitate reading.
-  
+
   * Other new feature.
-  
+
   ### Changed
 
   * Something changed (not new, not an improvement, not a fix).
-  
+
   ### Improved
 
   * Improvement.
-  
+
   ### Fixed
 
   * Bug fix.
@@ -284,15 +295,15 @@ dependence should be reflected by the argument order.
   ### New
 
   * New feature.
-  
+
   ### Changed
 
   * Something changed (not new, not an improvement, not a fix).
-  
+
   ### Improved
 
   * Improvement.
-  
+
   ### Fixed
 
   * Bug fix.
