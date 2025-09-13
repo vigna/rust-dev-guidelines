@@ -192,11 +192,13 @@ dependence should be reflected by the argument order.
 - In macros, one should always specify structures and traits starting from `::`
   to avoid relative resolution. This does not fix the problem of modules at
   the root of the crate shadowing modules in the standard library, but if
-  that happens there are much bigger problems to attend to.
+  that happens there are much bigger problems to attend to. The most readable
+  approach is adding a `use ::...` statement at the beginning each method body.
+  Then, you can just use the name of the structure or trait.
 
-- Methods in macros and generated code should use the UFCS (Uniform Function
-  Call Syntax) rather than the dot syntax, to avoid unpredictable
-  method-resolution issues. This entails writing `T::m(a)` instead of `a.m()`.
+- Methods in macros and generated code should use the [fully qualified
+  syntax](https://doc.rust-lang.org/book/ch20-02-advanced-traits.html) rather
+  than the dot syntax, to avoid unpredictable method-resolution issues.
 
 ## Logging
 
