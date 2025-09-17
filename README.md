@@ -157,6 +157,9 @@ dependence should be reflected by the argument order.
   more than one structure, the test functions might sport a disambiguating
   suffix after `test_`—for example, the name of the structure.
 
+- Test functions must return `anyhow::Result<()>` and use the `?` operator,
+  avoiding `unwrap` and `expect` unless absolutely necessary.
+
 - Assertions in tests must sport first the actual value, and then the expected
   value. For example,
 
@@ -190,11 +193,11 @@ dependence should be reflected by the argument order.
 ## Macros
 
 - In macros, one should always specify structures and traits starting from `::`
-  to avoid relative resolution. This does not fix the problem of modules at
-  the root of the crate shadowing modules in the standard library, but if
-  that happens there are much bigger problems to attend to. The most readable
-  approach is adding a `use ::...` statement at the beginning each method body.
-  Then, you can just use the name of the structure or trait.
+  to avoid relative resolution. This does not fix the problem of crates
+  shadowing modules in the standard library, but if that happens there are much
+  bigger problems to attend to. The most readable approach is adding a `use
+  ::...` statement at the beginning each method body. Then, you can just use the
+  name of the structure or trait.
 
 - Methods in macros and generated code should use the [fully qualified
   syntax](https://doc.rust-lang.org/book/ch20-02-advanced-traits.html) rather
