@@ -199,9 +199,13 @@ dependence should be reflected by the argument order.
   ::...` statement at the beginning each method body. Then, you can just use the
   name of the structure or trait.
 
-- Methods in macros and generated code should use the [fully qualified
+- Note that in declarative macros you can use `$crate::` to refer to items in
+  the current crate.
+
+- Trait methods in macros and generated code should use the [fully qualified
   syntax](https://doc.rust-lang.org/book/ch20-02-advanced-traits.html) rather
-  than the dot syntax, to avoid unpredictable method-resolution issues.
+  than the dot syntax, to avoid unpredictable method-resolution issues. Inherent
+  methods can use the dot syntax.
 
 ## Logging
 
