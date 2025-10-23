@@ -16,12 +16,13 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
   difference in commits due to spacing and formatting.
 
 - To release new versions:
-  - run `cargo c --all-targets` with every feature enabled;
+  - run `cargo c --all-targets --all-features`;
   - run `cargo +nightly fuzz build` if necessary;
   - run `clippy` and `rustfmt` on the code;
   - run `cargo doc --document-private-items` and check the generated docs;
   - run `cargo deadlinks`;
-  - run tests with the `slow_tests` feature, if available;
+  - run `cargo t --all-features`, which will include the `slow_tests` feature,
+    if available;
   - bump the version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
   - update the change log;
