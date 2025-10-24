@@ -94,6 +94,11 @@ dependence should be reflected by the field order.
       }
   }
 
+## Traits
+
+- Always implement `ExactSizeIterator`/`ExactSizeLender` and
+  `FusedIterator`/`FusedLender` when possible
+
 ## Methods
 
 - Rust does not allow for optional parameters with default values, but often one
