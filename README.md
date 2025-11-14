@@ -9,7 +9,7 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
 ## Tools
 
-- Code should be `clippy`-clean.
+- Code should be `clippy --all-features --all-targets`-clean.
 
 - Use `rustfmt` with standard options to format the code. Formatting should
   be enabled as a save action in the editor to reduce the number of spurious
