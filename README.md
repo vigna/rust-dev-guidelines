@@ -9,7 +9,7 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
 ## Tools
 
-- Code should be `clippy --all-features --all-targets`-clean.
+- Code should be `cargo clippy --all-features --all-targets`-clean.
 
 - Use `rustfmt` with standard options to format the code. Formatting should
   be enabled as a save action in the editor to reduce the number of spurious
@@ -18,10 +18,9 @@ Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 - To release new versions:
   - run `cargo c --all-targets --all-features`;
   - run `cargo +nightly fuzz build` if necessary;
-  - run `clippy` and `rustfmt` on the code;
-  - run `cargo doc --document-private-items` and check the generated docs;
+  - run `cargo doc --all-features --document-private-items` and check the generated docs;
   - run `cargo deadlinks`;
-  - run `cargo t --all-features`, which will include the `slow_tests` feature,
+  - run `cargo t --all-features --all-targets`, which will include the `slow_tests` feature,
     if available;
   - bump the version number;
   - run [`cargo semver-checks`](https://crates.io/crates/cargo-semver-checks);
