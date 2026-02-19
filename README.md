@@ -7,6 +7,8 @@ necessary.
 These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
+For CLI commands, follow the [Command-Line Interface Guidelines](https://clig.dev/).
+
 ## Tools
 
 - Code should be `cargo clippy --all-features --all-targets`-clean.
