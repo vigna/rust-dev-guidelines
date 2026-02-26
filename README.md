@@ -69,7 +69,8 @@ In source files, information about types should appear in this order:
 
 - In structures, the first declared fields should be the immutable ones (e.g.,
 those that do not change value in the lifetime of the structure) followed by the
-mutable ones. In each section, fields should be ordered from the most
+mutable ones (with the exception of marker fields such as `PhantomData`, which are
+always at the end). In each section, fields should be ordered from the most
 general/important to the least general/important. In particular, chains of
 dependence should be reflected by the field order.
 
