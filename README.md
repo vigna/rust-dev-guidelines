@@ -101,7 +101,7 @@ dependence should be reflected by the field order.
 - Always implement `ExactSizeIterator`/`ExactSizeLender` and
   `FusedIterator`/`FusedLender` when possible
 
-## Methods
+## Methods and functions
 
 - Rust does not allow for optional parameters with default values, but often one
 simulates them implicitly using `Option` or special values. In functions and
@@ -109,6 +109,8 @@ methods, the first parameters should be the compulsory ones, followed
 by the optional ones. In each section, arguments should be ordered from the most
 general/important to the least general/important. In particular, chains of
 dependence should be reflected by the argument order.
+
+- Whenever possible, make functions `const`.
 
 - Prefer `impl Trait` over type parameters whenever possible.
   For example,
