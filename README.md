@@ -158,7 +158,12 @@ dependence should be reflected by the argument order.
   - always prefer receiving a `AsRef<Path>` rather than a `Path`, `&Path`, or
       `&PathBuf`;
   - always prefer receiving a reference to a slice rather than a more specific
-    data structure like a vector.
+    data structure like a vector;
+  - prefer receiving an `impl Into<Option<T>>` rather than an `Option<T>` for
+    setters and similar simple methods. While the `impl` adds monomorphization
+    costs, it makes possible to transparently use a `T` (without a wrapping  `Some`)
+    for the argument.
+    
 
 ## Tests
 
