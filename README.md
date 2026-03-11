@@ -255,6 +255,9 @@ dependence should be reflected by the argument order.
 - An additional documentation section `Implementation Notes` can be used to
   gather details of the implementation that are not relevant to the user.
 
+- Clap field comments must end with a period, but must not contain any period in the middle of the
+  sentence as the final period will be removed by Clap. Use ; or : instead.
+
 - Functions and methods should be documented [in this
   way](https://doc.rust-lang.org/rust-by-example/meta/doc.html).
 
