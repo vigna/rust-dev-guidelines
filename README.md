@@ -7,7 +7,10 @@ necessary.
 These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
-For CLI commands, follow the [Command-Line Interface Guidelines](https://clig.dev/).
+For CLI commands, follow the [Command-Line Interface Guidelines](https://clig.dev/), and
+when using Clap remember to terminate all period-ending sentences with a 
+[zero-width space](https://en.wikipedia.org/wiki/Zero-width_space) so Clap won't strip
+the period.
 
 ## Tools
 
