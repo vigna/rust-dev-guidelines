@@ -99,7 +99,14 @@ dependence should be reflected by the field order.
       }
   }
 
-## Traits
+## Traits and bounds
+
+- Always prefer bounds in the `impl` clause to bounds in
+  the `where` clause. In principle, bounds in the `where` clause
+  should be limited to types which are not parameters of the `impl` clause.
+
+- Always prefer the `impl Trait` syntax for function parameters that
+  are generic.
 
 - Always implement `ExactSizeIterator`/`ExactSizeLender` and
   `FusedIterator`/`FusedLender` when possible
