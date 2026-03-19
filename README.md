@@ -105,8 +105,9 @@ dependence should be reflected by the field order.
   the `where` clause. In principle, bounds in the `where` clause
   should be limited to types which are not parameters of the `impl` clause.
 
-- Always prefer the `impl Trait` syntax for function parameters that
-  are generic.
+- Always prefer the `impl Trait` syntax for parameters of functions and inherent
+  methods that are generic. For trait methods, introduce a type parameter as the
+  syntax is more flexible.
 
 - Always implement `ExactSizeIterator`/`ExactSizeLender` and
   `FusedIterator`/`FusedLender` when possible
