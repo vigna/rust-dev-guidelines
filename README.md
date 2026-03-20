@@ -301,7 +301,7 @@ dependence should be reflected by the argument order.
   ```
 
 - Each project should sport a change log named `CHANGELOG.md` with the
-  following sample format:
+  following sample format, following [these guidelines](https://keepachangelog.com/en/1.0.0/):
 
   ```md
   # Change Log
