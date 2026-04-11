@@ -291,7 +291,7 @@ test` should not take more than a few seconds to run.
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
   block. The only exception is for links containing characters needing escape,
-  such as `[AsRef<[usize]>`, which must be necessarily written in inline style.
+  such as `[AsRef<[usize]>]`, which must be necessarily written in inline style.
 
 - The main crate documentation must be placed in a `README.md` file that
   is included by `lib.rs` using `#![doc = include_str!("../README.md")]`.
