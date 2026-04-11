@@ -8,7 +8,7 @@ These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
 For CLI commands, follow the [Command-Line Interface Guidelines](https://clig.dev/), and
-when using Clap remember to terminate all period-ending sentences with a 
+when using Clap remember to terminate all period-ending sentences with a
 [zero-width space](https://en.wikipedia.org/wiki/Zero-width_space) so Clap won't strip
 the period.
 
@@ -71,11 +71,11 @@ In source files, information about types should appear in this order:
 ## Structures
 
 - In structures, the first declared fields should be the immutable ones (e.g.,
-those that do not change value in the lifetime of the structure) followed by the
-mutable ones (with the exception of marker fields such as `PhantomData`, which are
-always at the end). In each section, fields should be ordered from the most
-general/important to the least general/important. In particular, chains of
-dependence should be reflected by the field order.
+  those that do not change value in the lifetime of the structure) followed by the
+  mutable ones (with the exception of marker fields such as `PhantomData`, which are
+  always at the end). In each section, fields should be ordered from the most
+  general/important to the least general/important. In particular, chains of
+  dependence should be reflected by the field order.
 
 - `impl` blocks should minimize the trait bounds of the type parameters. This is
   a concern similar to
@@ -98,6 +98,7 @@ dependence should be reflected by the field order.
           seek.stream_position()
       }
   }
+  ```
 
 ## Traits and bounds
 
@@ -115,11 +116,11 @@ dependence should be reflected by the field order.
 ## Methods and functions
 
 - Rust does not allow for optional parameters with default values, but often one
-simulates them implicitly using `Option` or special values. In functions and
-methods, the first parameters should be the compulsory ones, followed
-by the optional ones. In each section, arguments should be ordered from the most
-general/important to the least general/important. In particular, chains of
-dependence should be reflected by the argument order.
+  simulates them implicitly using `Option` or special values. In functions and
+  methods, the first parameters should be the compulsory ones, followed
+  by the optional ones. In each section, arguments should be ordered from the most
+  general/important to the least general/important. In particular, chains of
+  dependence should be reflected by the argument order.
 
 - Whenever possible, make functions `const`.
 
@@ -162,19 +163,20 @@ dependence should be reflected by the argument order.
       seek.stream_position()
   }
 
+  ```
+
 - There are a few standard preferences in argument types:
   - always prefer receiving an `IntoIterator` rather than an `Iterator`;
   - always prefer receiving a `AsRef<str>` rather than a `String`, `&str`, or
-      `&String`;
+    `&String`;
   - always prefer receiving a `AsRef<Path>` rather than a `Path`, `&Path`, or
-      `&PathBuf`;
+    `&PathBuf`;
   - always prefer receiving a reference to a slice rather than a more specific
     data structure like a vector;
   - prefer receiving an `impl Into<Option<T>>` rather than an `Option<T>` for
     setters and similar simple methods. While the `impl` adds monomorphization
-    costs, it makes possible to transparently use a `T` (without a wrapping  `Some`)
+    costs, it makes possible to transparently use a `T` (without a wrapping `Some`)
     for the argument.
-    
 
 ## Tests
 
@@ -214,7 +216,7 @@ dependence should be reflected by the argument order.
   file named `test_*` in the `tests` directory.
 
 - Very slow tests should be gated with the feature `slow_tests`. Ideally, `cargo
-  test` should not take more than a few seconds to run.
+test` should not take more than a few seconds to run.
 
 ## Macros
 
@@ -222,7 +224,7 @@ dependence should be reflected by the argument order.
   to avoid relative resolution. This does not fix the problem of crates
   shadowing modules in the standard library, but if that happens there are much
   bigger problems to attend to. The most readable approach is adding a `use
-  ::...` statement at the beginning each method body. Then, you can just use the
+::...` statement at the beginning each method body. Then, you can just use the
   name of the structure or trait.
 
 - Note that in declarative macros you can use `$crate::` to refer to items in
@@ -288,7 +290,8 @@ dependence should be reflected by the argument order.
 
 - As discussed in the reference above, links should be written in reference
   style, and the references should be placed at the end of the documentation
-  block.
+  block. The only exception is for links containing characters needing escape,
+  such as `[AsRef<[usize]>`, which must be necessarily written in inline style.
 
 - The main crate documentation must be placed in a `README.md` file that
   is included by `lib.rs` using `#![doc = include_str!("../README.md")]`.
@@ -297,7 +300,7 @@ dependence should be reflected by the argument order.
   `docs.rs` for the crate, as in
 
   ```md
-  [`MemCase`]: <https://docs.rs/epserde/latest/epserde/deser/mem_case/struct.MemCase.html>
+  [`MemCase`]: https://docs.rs/epserde/latest/epserde/deser/mem_case/struct.MemCase.html
   ```
 
 - Each project should sport a change log named `CHANGELOG.md` with the
@@ -310,40 +313,42 @@ dependence should be reflected by the argument order.
 
   ### New
 
-  * New feature, and note that lines should be max 80 characters long to
+  - New feature, and note that lines should be max 80 characters long to
     facilitate reading.
 
-  * Other new feature.
+  - Other new feature.
 
   ### Changed
 
-  * Something changed (not new, not an improvement, not a fix).
+  - Something changed (not new, not an improvement, not a fix).
 
   ### Improved
 
-  * Improvement.
+  - Improvement.
 
   ### Fixed
 
-  * Bug fix.
-
+  - Bug fix.
 
   ## [0.0.0] - 1970-01-01
 
   ### New
 
-  * New feature.
+  - New feature.
 
   ### Changed
 
-  * Something changed (not new, not an improvement, not a fix).
+  - Something changed (not new, not an improvement, not a fix).
 
   ### Improved
 
-  * Improvement.
+  - Improvement.
 
   ### Fixed
 
-  * Bug fix.
+  - Bug fix.
+  ```
+
+```
 
 ```
