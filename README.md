@@ -281,7 +281,7 @@ test` should not take more than a few seconds to run.
   /// # Arguments
   ///
   /// * `a` - The first argument, and note that lines should be max 80 characters
-  /// long to facilitate reading.
+  ///   long to facilitate reading.
   ///
   /// * `b` - The second argument. Note the empty line above.
   ///
