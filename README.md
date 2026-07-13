@@ -185,8 +185,9 @@ In source files, information about types should appear in this order:
   more than one structure, the test functions might sport a disambiguating
   suffix after `test_`—for example, the name of the structure.
 
-- Test functions must return `anyhow::Result<()>` and use the `?` operator,
-  avoiding `unwrap` and `expect` unless absolutely necessary.
+- Test functions which must handle errors must use the `?` operator and return
+  `anyhow::Result<()>`, avoiding `unwrap` and `expect` unless absolutely
+  necessary.
 
 - Assertions in tests must sport first the actual value, and then the expected
   value. For example,
