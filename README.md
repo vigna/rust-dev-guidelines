@@ -7,10 +7,11 @@ necessary.
 These guidelines extend the [Rust API
 Guidelines](https://rust-lang.github.io/api-guidelines/about.html).
 
-For CLI commands, follow the [Command-Line Interface Guidelines](https://clig.dev/), and
-when using Clap remember to terminate all period-ending sentences with a
-[zero-width space](https://en.wikipedia.org/wiki/Zero-width_space) so Clap won't strip
-the period.
+For CLI commands, follow the [Command-Line Interface
+Guidelines](https://clig.dev/), and when using Clap remember to follow the final
+period of each doc comment with a [zero-width
+space](https://en.wikipedia.org/wiki/Zero-width_space) so Clap won't strip the
+period.
 
 ## Tools
 
@@ -84,7 +85,7 @@ In source files, information about types should appear in this order:
 
   ```rust
   impl<S: Read + Seek> Foo<S> {
-      pub fn bar(seek: S) -> std::io::Result<u64> {
+      pub fn bar(mut seek: S) -> std::io::Result<u64> {
           seek.stream_position()
       }
   }
@@ -94,7 +95,7 @@ In source files, information about types should appear in this order:
 
   ```rust
   impl<S: Seek> Foo<S> {
-      pub fn bar(seek: S) -> std::io::Result<u64> {
+      pub fn bar(mut seek: S) -> std::io::Result<u64> {
           seek.stream_position()
       }
   }
@@ -151,7 +152,7 @@ In source files, information about types should appear in this order:
   For example,
 
   ```rust
-  pub fn bar(seek: impl (Read + Seek)) -> std::io::Result<u64> {
+  pub fn bar(mut seek: impl Read + Seek) -> std::io::Result<u64> {
       seek.stream_position()
   }
   ```
@@ -159,7 +160,7 @@ In source files, information about types should appear in this order:
   should be
 
   ```rust
-  pub fn bar(seek: impl Seek) -> std::io::Result<u64> {
+  pub fn bar(mut seek: impl Seek) -> std::io::Result<u64> {
       seek.stream_position()
   }
 
@@ -269,8 +270,9 @@ test` should not take more than a few seconds to run.
 - An additional documentation section `Implementation Notes` can be used to
   gather details of the implementation that are not relevant to the user.
 
-- Clap field comments must end with a period, but must not contain any period in the middle of the
-  sentence as the final period will be removed by Clap. Use ; or : instead.
+- Clap field comments must end with a period followed by a zero-width space, as
+  explained at the beginning of this document, so that Clap won't strip the
+  period.
 
 - Functions and methods should be documented [in this
   way](https://doc.rust-lang.org/rust-by-example/meta/doc.html).
@@ -349,7 +351,3 @@ test` should not take more than a few seconds to run.
 
   - Bug fix.
   ```
-
-```
-
-```
